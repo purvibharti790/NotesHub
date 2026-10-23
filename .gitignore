@@ -1,0 +1,21 @@
+# NotesHub Root .gitignore
+
+# Backend build files
+backend/target/
+backend/.mvn/wrapper/maven-wrapper.jar
+backend/*.log
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.iml
+*.class
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Temporary uploaded PDFs (keep folder, ignore uploaded files)
+uploads/*
+!uploads/.gitkeep

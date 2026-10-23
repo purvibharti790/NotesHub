@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NotesHub — Student Notes Sharing Platform | B.Tech CSE Project</title>
+  <meta name="description" content="Centralized academic notes sharing platform for college students. Upload, search, view, and download PDF study notes by branch, semester, and subject.">
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==================== HEADER / NAVIGATION ==================== -->
+  <header class="navbar" id="mainNavbar">
+    <div class="nav-container">
+      <a href="#home" class="logo" id="siteLogo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            <path d="M9 7h6"></path>
+            <path d="M9 11h6"></path>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="brand-title">Notes<span>Hub</span></span>
+          <span class="brand-badge">B.Tech Portal</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-link active" id="navHome">Home</a>
+        <a href="#browse-section" class="nav-link" id="navBrowse">Browse Notes</a>
+        <a href="#how-it-works" class="nav-link" id="navAbout">How it Works</a>
+        <a href="#faq" class="nav-link" id="navFaq">FAQs</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <button class="btn btn-outline" id="btnOpenAuthModal">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span id="authButtonText">Student Login</span>
+        </button>
+        <button class="btn btn-primary" id="btnOpenUploadModal">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+          <span>Upload Notes</span>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="hero-section" id="home">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-tag">
+          <span class="pulse-dot"></span>
+          <span>3rd Year B.Tech CSE Mini Project</span>
+        </div>
+        <h1 class="hero-title">
+          Share Study Notes, <br>
+          <span class="gradient-text">Ace Exams Together.</span>
+        </h1>
+        <p class="hero-subtitle">
+          The all-in-one college notes sharing platform. Find verified lecture notes, handwritten summaries, and previous semester question papers filtered by Branch, Semester, and Subject.
+        </p>
+
+        <!-- Hero Action Buttons -->
+        <div class="hero-cta-group">
+          <a href="#browse-section" class="btn btn-primary btn-lg" id="heroExploreBtn">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            Explore All Notes
+          </a>
+          <button class="btn btn-secondary btn-lg" id="heroUploadBtn">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14M5 12h14"></path>
+            </svg>
+            Contribute Notes
+          </button>
+        </div>
+
+        <!-- Live Quick Stats -->
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h3 class="stat-number" id="statTotalNotes">6+</h3>
+            <p class="stat-label">Verified Notes</p>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <h3 class="stat-number">8</h3>
+            <p class="stat-label">Semesters Covered</p>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <h3 class="stat-number">6</h3>
+            <p class="stat-label">Engineering Branches</p>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <h3 class="stat-number" id="statDownloads">1,240+</h3>
+            <p class="stat-label">Total Downloads</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BROWSE & FILTER SECTION ==================== -->
+  <section class="browse-section" id="browse-section">
+    <div class="section-container">
+      
+      <!-- Section Header -->
+      <div class="section-header">
+        <div>
+          <span class="section-badge">Repository</span>
+          <h2 class="section-title">Explore Engineering Notes</h2>
+          <p class="section-subtitle">Filter notes precisely by your branch, current semester, or search by subject keywords.</p>
+        </div>
+        <div class="backend-status-pill" id="backendStatusPill" title="Spring Boot REST API Connectivity">
+          <span class="status-indicator"></span>
+          <span id="backendStatusText">Checking Backend...</span>
+        </div>
+      </div>
+
+      <!-- Filter & Search Toolbar -->
+      <div class="filter-toolbar" id="filterToolbar">
+        
+        <!-- Search Input -->
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="searchInput" placeholder="Search by title, subject (e.g. DBMS, OS), or topic..." autocomplete="off">
+          <button class="clear-search-btn" id="clearSearchBtn" aria-label="Clear search" style="display: none;">&times;</button>
+        </div>
+
+        <!-- Filter Dropdowns Row -->
+        <div class="dropdown-group">
+          <!-- Branch Filter -->
+          <div class="select-wrapper">
+            <label for="filterBranch" class="sr-only">Branch</label>
+            <select id="filterBranch">
+              <option value="ALL">All Branches</option>
+              <option value="CSE">Computer Science (CSE)</option>
+              <option value="IT">Information Tech (IT)</option>
+              <option value="ECE">Electronics (ECE)</option>
+              <option value="EEE">Electrical (EEE)</option>
+              <option value="MECH">Mechanical (MECH)</option>
+              <option value="CIVIL">Civil Engg (CIVIL)</option>
+            </select>
+          </div>
+
+          <!-- Semester Filter -->
+          <div class="select-wrapper">
+            <label for="filterSemester" class="sr-only">Semester</label>
+            <select id="filterSemester">
+              <option value="ALL">All Semesters</option>
+              <option value="1">Semester 1</option>
+              <option value="2">Semester 2</option>
+              <option value="3">Semester 3</option>
+              <option value="4">Semester 4</option>
+              <option value="5">Semester 5</option>
+              <option value="6">Semester 6</option>
+              <option value="7">Semester 7</option>
+              <option value="8">Semester 8</option>
+            </select>
+          </div>
+
+          <!-- Sort Filter -->
+          <div class="select-wrapper">
+            <label for="filterSort" class="sr-only">Sort by</label>
+            <select id="filterSort">
+              <option value="newest">Newest Uploads</option>
+              <option value="downloads">Most Downloaded</option>
+              <option value="title">Alphabetical (A-Z)</option>
+            </select>
+          </div>
+
+          <!-- Reset Filter Button -->
+          <button class="btn btn-ghost" id="btnResetFilters" title="Reset all filters">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+              <path d="M3 3v5h5"></path>
+            </svg>
+            Reset
+          </button>
+        </div>
+      </div>
+
+      <!-- Active Filter Tags Display -->
+      <div class="active-filters-bar" id="activeFiltersBar" style="display: none;">
+        <span class="active-filters-label">Active Filters:</span>
+        <div class="chips-container" id="filterChipsContainer"></div>
+      </div>
+
+      <!-- Results Count Info -->
+      <div class="results-meta">
+        <p class="results-count" id="resultsCountText">Showing <strong>6</strong> notes</p>
+      </div>
+
+      <!-- Notes Grid -->
+      <div class="notes-grid" id="notesGrid">
+        <!-- Notes Cards will be rendered dynamically by JavaScript -->
+      </div>
+
+      <!-- Empty State (Shown when search/filter has no match) -->
+      <div class="empty-state" id="emptyState" style="display: none;">
+        <div class="empty-icon">
+          <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            <line x1="8" y1="11" x2="14" y2="11"></line>
+          </svg>
+        </div>
+        <h3 class="empty-title">No Study Notes Found</h3>
+        <p class="empty-desc">We couldn't find any notes matching your search or selected filters. Try searching for different keywords or reset your filters.</p>
+        <button class="btn btn-outline" id="btnEmptyReset">Reset Filters</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== HOW IT WORKS SECTION ==================== -->
+  <section class="how-section" id="how-it-works">
+    <div class="section-container">
+      <div class="section-header text-center">
+        <span class="section-badge">Simple Process</span>
+        <h2 class="section-title">How NotesHub Works</h2>
+        <p class="section-subtitle">Designed to help students collaborate effortlessly during exams and lab preps.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-icon step-blue">1</div>
+          <h3 class="step-heading">Search & Discover</h3>
+          <p class="step-text">Filter notes by your branch (CSE, IT, ECE), semester (1-8), and subject name to find exact syllabus-relevant materials.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon step-indigo">2</div>
+          <h3 class="step-heading">Preview or Download</h3>
+          <p class="step-text">Instant preview of notes description and metadata. Download clean PDF files for offline study on mobile, tablet, or laptop.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon step-cyan">3</div>
+          <h3 class="step-heading">Upload & Help Peers</h3>
+          <p class="step-text">Share your handwritten notes, previous exam solutions, and lab manuals to help your batchmates score higher.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== UPLOAD NOTES MODAL ==================== -->
+  <div class="modal-backdrop" id="uploadModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+          </div>
+          <div>
+            <h3 class="modal-title">Upload Study Notes</h3>
+            <p class="modal-subtitle">Contribute PDF notes for your college peers.</p>
+          </div>
+        </div>
+        <button class="modal-close" id="btnCloseUploadModal" aria-label="Close modal">&times;</button>
+      </div>
+
+      <form id="uploadNotesForm" class="modal-body" novalidate>
+        
+        <!-- Note Title -->
+        <div class="form-group">
+          <label for="uploadTitle" class="form-label">Note Title <span class="required">*</span></label>
+          <input type="text" id="uploadTitle" class="form-control" placeholder="e.g. Process Scheduling & Deadlock Complete Notes" required>
+          <span class="form-error" id="errTitle">Title is required (min 5 characters).</span>
+        </div>
+
+        <!-- Subject & Branch Row -->
+        <div class="form-row">
+          <div class="form-group col-half">
+            <label for="uploadBranch" class="form-label">Branch <span class="required">*</span></label>
+            <select id="uploadBranch" class="form-control" required>
+              <option value="" disabled selected>Select Branch</option>
+              <option value="CSE">Computer Science (CSE)</option>
+              <option value="IT">Information Tech (IT)</option>
+              <option value="ECE">Electronics (ECE)</option>
+              <option value="EEE">Electrical (EEE)</option>
+              <option value="MECH">Mechanical (MECH)</option>
+              <option value="CIVIL">Civil Engg (CIVIL)</option>
+            </select>
+            <span class="form-error" id="errBranch">Please select a branch.</span>
+          </div>
+
+          <div class="form-group col-half">
+            <label for="uploadSemester" class="form-label">Semester <span class="required">*</span></label>
+            <select id="uploadSemester" class="form-control" required>
+              <option value="" disabled selected>Select Semester</option>
+              <option value="1">Semester 1</option>
+              <option value="2">Semester 2</option>
+              <option value="3">Semester 3</option>
+              <option value="4">Semester 4</option>
+              <option value="5">Semester 5</option>
+              <option value="6">Semester 6</option>
+              <option value="7">Semester 7</option>
+              <option value="8">Semester 8</option>
+            </select>
+            <span class="form-error" id="errSemester">Please select a semester.</span>
+          </div>
+        </div>
+
+        <!-- Subject Name -->
+        <div class="form-group">
+          <label for="uploadSubject" class="form-label">Subject Name <span class="required">*</span></label>
+          <input type="text" id="uploadSubject" class="form-control" placeholder="e.g. Operating Systems / Database Management" required>
+          <span class="form-error" id="errSubject">Subject name is required.</span>
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+          <label for="uploadDescription" class="form-label">Description / Academic Topics</label>
+          <textarea id="uploadDescription" class="form-control" rows="3" placeholder="Brief summary of syllabus units, key topics covered, or references..."></textarea>
+        </div>
+
+        <!-- Uploader Name (for non-authenticated upload demo) -->
+        <div class="form-group">
+          <label for="uploadUploader" class="form-label">Your Name / Student ID <span class="required">*</span></label>
+          <input type="text" id="uploadUploader" class="form-control" placeholder="e.g. Rahul Sharma (Roll: 22CSE045)" required>
+          <span class="form-error" id="errUploader">Please enter your student name.</span>
+        </div>
+
+        <!-- PDF File Dropzone -->
+        <div class="form-group">
+          <label class="form-label">PDF Notes File <span class="required">*</span></label>
+          <div class="file-dropzone" id="fileDropzone">
+            <input type="file" id="pdfFileInput" accept="application/pdf" class="file-input-hidden" required>
+            <div class="dropzone-content" id="dropzonePrompt">
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="12" y1="18" x2="12" y2="12"></line>
+                <line x1="9" y1="15" x2="12" y2="12"></line>
+                <line x1="15" y1="15" x2="12" y2="12"></line>
+              </svg>
+              <p class="dropzone-title">Click to upload or drag & drop</p>
+              <p class="dropzone-hint">Only valid PDF format accepted (Max 15 MB)</p>
+            </div>
+            <!-- File selected preview -->
+            <div class="file-selected-box" id="fileSelectedBox" style="display: none;">
+              <div class="file-info-badge">
+                <span class="pdf-tag">PDF</span>
+                <div>
+                  <p class="selected-filename" id="selectedFilename">filename.pdf</p>
+                  <p class="selected-filesize" id="selectedFilesize">0 KB</p>
+                </div>
+              </div>
+              <button type="button" class="remove-file-btn" id="btnRemoveFile" title="Remove selected file">&times;</button>
+            </div>
+          </div>
+          <span class="form-error" id="errFile">Please select a valid PDF file.</span>
+        </div>
+
+        <!-- Modal Footer Actions -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="btnCancelUpload">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="btnSubmitUpload">
+            <span class="btn-text">Submit Note</span>
+            <span class="spinner" style="display: none;"></span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== NOTE PREVIEW / DETAILS MODAL ==================== -->
+  <div class="modal-backdrop" id="previewModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="badge badge-branch" id="modalPreviewBranch">CSE • Sem 4</span>
+          <h3 class="modal-title" id="modalPreviewTitle">Process Scheduling & Deadlocks</h3>
+        </div>
+        <button class="modal-close" id="btnClosePreviewModal" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="preview-meta-grid">
+          <div class="preview-meta-item">
+            <span class="meta-label">Subject</span>
+            <span class="meta-val" id="modalPreviewSubject">Operating Systems</span>
+          </div>
+          <div class="preview-meta-item">
+            <span class="meta-label">Uploaded By</span>
+            <span class="meta-val" id="modalPreviewUploader">Amit Kumar</span>
+          </div>
+          <div class="preview-meta-item">
+            <span class="meta-label">Upload Date</span>
+            <span class="meta-val" id="modalPreviewDate">Oct 12, 2026</span>
+          </div>
+          <div class="preview-meta-item">
+            <span class="meta-label">Total Downloads</span>
+            <span class="meta-val" id="modalPreviewDownloads">342 downloads</span>
+          </div>
+        </div>
+
+        <div class="preview-desc-box">
+          <h4 class="preview-subheading">Topics & Overview:</h4>
+          <p class="preview-description-text" id="modalPreviewDesc">Detailed handwritten notes covering Process States, CPU Scheduling Algorithms, Critical Section Problem, Semaphores, and Deadlock Detection.</p>
+        </div>
+
+        <!-- Mock PDF Document Viewer Frame -->
+        <div class="pdf-viewer-frame">
+          <div class="viewer-header">
+            <span>Document Preview (PDF Reader)</span>
+            <span class="viewer-badge">Secure Stream</span>
+          </div>
+          <div class="viewer-placeholder">
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <p class="viewer-text">PDF Ready for Viewing & Download</p>
+            <p class="viewer-subtext">Click below to download or view locally</p>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="btnClosePreviewBtn">Close</button>
+          <button type="button" class="btn btn-primary" id="btnModalDownload">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download Note (PDF)
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== AUTHENTICATION (LOGIN/REGISTER) MODAL ==================== -->
+  <div class="modal-backdrop" id="authModal" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h3 class="modal-title">Student Portal</h3>
+          <p class="modal-subtitle">Login or register to manage your notes.</p>
+        </div>
+        <button class="modal-close" id="btnCloseAuthModal" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tabLoginBtn">Login</button>
+        <button class="auth-tab" id="tabRegisterBtn">Register</button>
+      </div>
+
+      <div class="modal-body">
+        
+        <!-- Login Form -->
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="loginEmail" class="form-label">Email Address</label>
+            <input type="email" id="loginEmail" class="form-control" placeholder="student@college.edu" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword" class="form-label">Password</label>
+            <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+          <p class="auth-hint">Demo accounts: <strong>student@noteshub.edu</strong> / <strong>password123</strong> (Student) &bull; <strong>admin@noteshub.edu</strong> / <strong>admin123</strong> (Admin)</p>
+        </form>
+
+        <!-- Register Form (Hidden by default) -->
+        <form id="registerForm" style="display: none;">
+          <div class="form-group">
+            <label for="regName" class="form-label">Full Name</label>
+            <input type="text" id="regName" class="form-control" placeholder="Rahul Sharma" required>
+          </div>
+          <div class="form-group">
+            <label for="regEmail" class="form-label">College Email</label>
+            <input type="email" id="regEmail" class="form-control" placeholder="student@college.edu" required>
+          </div>
+          <div class="form-group">
+            <label for="regPassword" class="form-label">Password</label>
+            <input type="password" id="regPassword" class="form-control" placeholder="Create strong password" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TOAST NOTIFICATION CONTAINER ==================== -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </div>
+          <span class="brand-title">Notes<span>Hub</span></span>
+        </div>
+        <p class="footer-desc">
+          NotesHub is an academic notes sharing platform developed as a 3rd-Year B.Tech Computer Science and Engineering mini-project. Designed with a decoupled architecture utilizing Spring Boot REST APIs and Vanilla HTML/CSS/JavaScript.
+        </p>
+      </div>
+
+      <div class="footer-links-group">
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <a href="#home">Home</a>
+          <a href="#browse-section">Browse Notes</a>
+          <a href="#how-it-works">How It Works</a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Tech Stack</h4>
+          <span>Frontend: HTML5, CSS3, JS</span>
+          <span>Backend: Spring Boot 3.4</span>
+          <span>Security: Spring Security & BCrypt</span>
+          <span>Database: MySQL with JPA</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 NotesHub — Student Notes Sharing Platform. Mini-Project Submission.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+</body>
+</html>
